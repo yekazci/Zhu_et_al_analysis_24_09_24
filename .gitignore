@@ -1,0 +1,12 @@
+# Ignore specific folders
+R_Objects/
+
+
+# Ignore a specific file
+
+
+# Ignore all files with a certain extension (e.g., `.log` files)
+
+# Ignore the .ipynb_checkpoints folder (specific to Jupyter notebooks)
+.ipynb_checkpoints/
+
