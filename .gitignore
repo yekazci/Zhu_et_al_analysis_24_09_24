@@ -10,3 +10,5 @@ R_Objects/
 # Ignore the .ipynb_checkpoints folder (specific to Jupyter notebooks)
 .ipynb_checkpoints/
 
+# ignore powerpoints
+*.pptx

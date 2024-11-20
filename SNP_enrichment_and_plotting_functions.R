@@ -1,8 +1,18 @@
+message("Loading traseR package...")
+
 library(traseR)
 
-# data(taSNP)
+message("Loading taSNP database...")
 
-# data(taSNP)
+data(taSNP)
+
+message("Loading taSNPLD database which additionally contains LD SNPs...")
+
+data(taSNPLD)
+
+message("Loading CEU database which contains all known SNPs...")
+
+data(CEU)
 
 # generic function to calculate enriched SNPs with background of whole genome, and all SNPs.
 
