@@ -1,6 +1,7 @@
 # Ignore specific folders
 R_Objects/
 
+R_Outputs/
 
 # Ignore a specific file
 
