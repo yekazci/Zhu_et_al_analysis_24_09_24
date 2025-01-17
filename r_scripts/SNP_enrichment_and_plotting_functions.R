@@ -208,3 +208,57 @@ plot_trait_classes(enriched_SNP_obj = enriched_SNP_obj$all_SNPs_as_bg, qvalue = 
 #     cat('\n')
 
 }
+
+######################
+
+plot_for_diff_expansions_for_saving <- plot_for_diff_expansions <- function(enriched_SNP_obj, expansion_value_string = expansion_value) { 
+
+p1 <-
+    
+plot_traits(enriched_SNP_obj = enriched_SNP_obj$all_genome_as_bg, qvalue = 0.05) +
+    ggtitle(label = glue::glue('Genomic regions expanded by {expansion_value_string} from each end, with whole genome as background')) +
+    theme(plot.margin = unit(c(2, 2, 2, 2), "lines")) # add some margins to top, right, bottom, left.
+    
+p2 <- 
+    
+plot_traits(enriched_SNP_obj = enriched_SNP_obj$all_SNPs_as_bg, qvalue = 0.05, SNP_hit_cut_off = 0) +
+    ggtitle(label = glue::glue('Genomic regions expanded by {expansion_value_string} from each end, with all SNPs as background')) +
+    theme(plot.margin = unit(c(2, 2, 2, 2), "lines"))
+
+p3 <- 
+    
+plot_trait_classes(enriched_SNP_obj = enriched_SNP_obj$all_genome_as_bg, qvalue = 0.05) +
+    ggtitle(label = glue::glue('Genomic regions expanded by {expansion_value_string} from each end. with whole genome as background')) +
+    theme(plot.margin = unit(c(2, 2, 2, 2), "lines"))
+
+p4 <- 
+    
+plot_trait_classes(enriched_SNP_obj = enriched_SNP_obj$all_SNPs_as_bg, qvalue = 0.05, SNP_hit_cut_off = 0) +
+    ggtitle(label = glue::glue('Genomic regions expanded by {expansion_value_string} from each end, with all SNPs as background')) +
+    theme(plot.margin = unit(c(2, 2, 2, 2), "lines"))
+
+#     suppressWarnings(print(p1))
+#     cat('\n')
+    
+#     Sys.sleep(1)
+    
+#     suppressWarnings(print(p2))
+#     cat('\n')
+    
+#     Sys.sleep(1)
+    
+#     suppressWarnings(print(p3))
+#     cat('\n')
+    
+#     Sys.sleep(1)
+    
+#     suppressWarnings(print(p4))
+#     cat('\n')
+    
+# Combine plots into a grid without rendering it
+
+    combined_plot <- gridExtra::arrangeGrob(grobs = list(p1, p2, p3, p4), ncol = 2)
+    
+   return(combined_plot)
+
+}
